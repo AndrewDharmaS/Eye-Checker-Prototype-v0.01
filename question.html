@@ -1,0 +1,39 @@
+<section class="question">
+    <div class="title">
+        What did you see?
+    </div>
+    <input type="text" id="answer" maxlength="1" placeholder="Alphabets Only" onkeypress="return /[a-z]/i.test(event.key)" required>
+    <input type="button" id="skip" value="Skip">
+    <input type="button" id="next" value="Next">
+</section>
+
+<script>
+    $('#skip').click(function() {
+        u_a.push('0');
+        w_a.push(o);
+        f++;
+        if (f == 1 || f == 2) o--;
+        if (o++ < 10) {
+            loadTest();
+        };
+    });
+    $('#next').click(function() {
+        as = $('#answer');
+        as.empty();
+        ac = as.val().charAt(0).toUpperCase();
+        u_a.push(ac);
+        if (ac != a) {
+            u_a.push('0');
+            w_a.push(o);
+            f++;
+            if (f == 1 || f == 2) o--;
+        }
+        else {
+            if (f == 1 || f == 2) f = 0;
+            f = f;
+        };
+        if (o++ < 10) {
+            loadTest();
+        };
+    });
+</script>
