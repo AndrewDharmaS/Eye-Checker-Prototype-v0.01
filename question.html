@@ -3,19 +3,13 @@
         What did you see?
     </div>
     <input type="text" id="answer" maxlength="1" placeholder="Alphabets Only" onkeypress="return /[a-z]/i.test(event.key)" required>
-    <input type="button" id="skip" value="Skip">
+    <input type="button" id="blur" value="Blur">
     <input type="button" id="next" value="Next">
 </section>
 
 <script>
-    $('#skip').click(function() {
-        u_a.push('0');
-        w_a.push(o);
-        f++;
-        if (f == 1 || f == 2) o--;
-        if (o++ < mo) {
-            loadTest();
-        };
+    $('#blur').click(function() {
+        loadResult();
     });
     $('#next').click(function() {
         as = $('#answer');
