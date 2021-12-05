@@ -262,7 +262,7 @@
         h++;
             // console.log(o, f);
         if (o < 10 && f < 3) {
-            $.ajax({url: "https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/369c6eec91de473630d005b8bfa495d9526261a0/myopia.html", success: async function(result){
+            $.ajax({url: "https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/main/myopia.html", success: async function(result){
                 $("#ajaxLoad").html(result);
                 c = $('#' + t + '-char');
                 if (o < 10 && f < 3) {
@@ -280,13 +280,13 @@
         };
     }
     function loadQuestion(t) {
-        $.ajax({url: "https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/369c6eec91de473630d005b8bfa495d9526261a0/question.html", success: async function(result){
+        $.ajax({url: "https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/main/question.html", success: async function(result){
             $("#ajaxLoad").html(result);
             r_a.push(a.toUpperCase());
         }});
     }
     function loadResult() {
-        $.ajax({url: "https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/369c6eec91de473630d005b8bfa495d9526261a0/result.html", success: function(result){
+        $.ajax({url: "https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/main/result.html", success: function(result){
             $("#ajaxLoad").html(result);
             var p = calculateResult(r_a, u_a);
             var x = Math.floor(((p)/h)*100);
