@@ -197,6 +197,10 @@
             font-size: 120px;
             padding: 40px 0;
         }
+        .output .lenses {
+            font-size: 20px;
+            display: block;
+        }
         .output .detail-button input[type=button] {
             padding: 20px 40px;
             font-size: 28px;
@@ -290,7 +294,7 @@
             // console.log(x);
             $("#acuity").text(x + "%");
             var d = 30 + cv[o]/2;
-            var y = (((100/d)/-0.25)*0.25);
+            var y = (Math.round((100/d)/-0.25)*0.25)
             $("#lens").text(y);
             h = 0;
             o = 0;
