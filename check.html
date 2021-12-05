@@ -69,36 +69,55 @@
             font-weight: bold!important;
             font-style: normal;
         }
+        .v2-200 {
+            /* font-size: 326.857142857142pt; */
+            font-size: 43.4pt;
+        }
+        .v2-100 {
+            /* font-size: 163.428571428571pt; */
+            font-size: 21.7pt;
+        }
         .v2-70 {
-            font-size: 112.4pt;
+            /* font-size: 112.4pt; */
+            font-size: 15.2pt;
         }
         .v2-60 {
-            font-size: 98.0571428571426pt;
+            /* font-size: 98.0571428571426pt; */
+            font-size: 13.02pt;
         }
         .v2-50 {
-            font-size: 81.7142857142855pt;
+            /* font-size: 81.7142857142855pt; */
+            font-size: 10.85pt;
         }
         .v2-40 {
-            font-size: 65.3714285714284pt;
+            /* font-size: 65.3714285714284pt; */
+            font-size: 8.68pt;
         }
         .v2-30 {
-            font-size: 49.0285714285713pt;
+            /* font-size: 49.0285714285713pt; */
+            font-size: 6.51pt;
         }
         .v2-20 {
-            font-size: 32.6857142857142pt;
+            /* font-size: 32.6857142857142pt; */
+            font-size: 4.34pt;
         }
         .v2-15 {
-            font-size: 24.5142857142856pt;
+            /* font-size: 24.5142857142856pt; */
+            font-size: 3.255pt;
         }
         .v2-10 {
-            font-size: 16.3428571428571pt;
+            /* font-size: 16.3428571428571pt; */
+            font-size: 2.17pt;
         }
         .v2-7 {
-            font-size: 11.44pt;
+            /* font-size: 11.44pt; */
+            font-size: 1.519pt;
         }
         .v2-4 {
-            font-size: 6.53714285714284pt;
+            /* font-size: 6.53714285714284pt; */
+            font-size: 0.868pt;
         }
+        
         .question {
             text-align: center;
             position: absolute;
@@ -204,7 +223,7 @@
     <section class="check-eye" id="introduction">
         <div class="instruction">
             <div class="image-section">
-                <img src="./assets/images/inst1.png" alt="">
+                <img src="https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/369c6eec91de473630d005b8bfa495d9526261a0/assets/images/inst1.png" alt="">
             </div>
             <div class="description">
                 Distances yourself from the screen device by 2 feet or 60 cm, cover one of your eyes with hand, and keep your head straight with the screen.
@@ -231,14 +250,15 @@
     const u_a = [];
     const w_a = [];
     var cl = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var cs = ['v2-70', 'v2-60', 'v2-50', 'v2-40', 'v2-30', 'v2-20', 'v2-15', 'v2-10', 'v2-7', 'v2-4'];
+    var cs = ['v2-200', 'v2-100', 'v2-70', 'v2-60', 'v2-50', 'v2-40', 'v2-30', 'v2-20', 'v2-15', 'v2-10'];
+    var cv = [200, 100, 70, 60, 50, 40, 30, 20, 15, 10];
     var as;
     var c;
     function loadTest() {
         h++;
             // console.log(o, f);
         if (o < 10 && f < 3) {
-            $.ajax({url: "myopia.html", success: async function(result){
+            $.ajax({url: "https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/369c6eec91de473630d005b8bfa495d9526261a0/myopia.html", success: async function(result){
                 $("#ajaxLoad").html(result);
                 c = $('#' + t + '-char');
                 if (o < 10 && f < 3) {
@@ -247,6 +267,7 @@
                 }
                 a = randomCharacter(t);
                 await sleep(5000);
+                // console.log(o);
                 loadQuestion(t);
             }});
         } else if (o >= 10 || f > 2) {
@@ -255,19 +276,22 @@
         };
     }
     function loadQuestion(t) {
-        $.ajax({url: "question.html", success: async function(result){
+        $.ajax({url: "https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/369c6eec91de473630d005b8bfa495d9526261a0/question.html", success: async function(result){
             $("#ajaxLoad").html(result);
             r_a.push(a.toUpperCase());
         }});
     }
     function loadResult() {
-        $.ajax({url: "result.html", success: function(result){
+        $.ajax({url: "https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/369c6eec91de473630d005b8bfa495d9526261a0/result.html", success: function(result){
             $("#ajaxLoad").html(result);
             var p = calculateResult(r_a, u_a);
             var x = Math.floor(((p)/h)*100);
             // console.log(p);
             // console.log(x);
             $("#acuity").text(x + "%");
+            var d = 30 + cv[o]/2;
+            var y = (((100/d)/-0.25)*0.25);
+            $("#lens").text(y);
             h = 0;
             o = 0;
             f = 0;
@@ -275,6 +299,8 @@
             c = 0;
             a = 0;
             t = 0;
+            d = 0;
+            y = 0;
         }});
     }
     function calculateResult(r_a, u_a) {
