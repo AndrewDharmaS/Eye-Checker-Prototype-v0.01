@@ -1,33 +1,5 @@
 
-20/70 berarti di jarak 20 ft dapat melihat 70ft
-berarti jika kita berada di 40ft dan melihat 90ft
-harusnya sama dengan 20ft melihat 70ft yang membuktikan kesetaraan
-Jika jarak kita dengan monitor biasanya 60 cm / 2ft
-berarti dari 20/70 dapat dihitung menjadi 2/70 (dikecilkan)
-dikarenakan distance kita berkurang sebesar 18ft berarti pada 70ft harus dikurangkan 18ft yakni 52ft
-dengan menghitung jarak per feet yakni diambil dari font size 70ft dan 60ft
-152-130 = 22
-22/ 10 = 2.2
-didapatkan 1ft = 2.2 font size
-52*2.2 didapatkan 114,4 untuk 70ft
-untuk menghitung jarak yang baru digunakan rumus
-114,4/70 = 1.63428571428571
-dikarenakan 20/0 atau 2/0 = 0
-per 1ft font-sizenya = 1.63428571428571
-
-
-ft	font-size
-70 = 114.4
-60 = 98.0571428571426
-50 = 81.7142857142855
-40 = 65.3714285714284
-30 = 49.0285714285713
-20 = 32.6857142857142
-15 = 24.5142857142856
-10 = 16.3428571428571
-7 = 11.44
-4 = 6.53714285714284
-
 MORE:
 https://endmyopia.org/focal-calculator/calc.html
+https://www.happyeyesight.com/get-20-20-vision/
 (Math.round((100/cm)/-0.25)*.25)

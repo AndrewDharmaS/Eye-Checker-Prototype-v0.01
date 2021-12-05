@@ -69,53 +69,41 @@
             font-weight: bold!important;
             font-style: normal;
         }
+        .v2-400 {
+            font-size: 86.8pt;
+        }
+        .v2-300 {
+            font-size: 65.1pt;
+        }
         .v2-200 {
-            /* font-size: 326.857142857142pt; */
             font-size: 43.4pt;
         }
+        .v2-150 {
+            font-size: 32.55pt;
+        }
         .v2-100 {
-            /* font-size: 163.428571428571pt; */
             font-size: 21.7pt;
         }
         .v2-70 {
-            /* font-size: 112.4pt; */
             font-size: 15.2pt;
         }
         .v2-60 {
-            /* font-size: 98.0571428571426pt; */
             font-size: 13.02pt;
         }
         .v2-50 {
-            /* font-size: 81.7142857142855pt; */
             font-size: 10.85pt;
         }
         .v2-40 {
-            /* font-size: 65.3714285714284pt; */
             font-size: 8.68pt;
         }
         .v2-30 {
-            /* font-size: 49.0285714285713pt; */
             font-size: 6.51pt;
         }
-        .v2-20 {
-            /* font-size: 32.6857142857142pt; */
+        .v2-25 {
             font-size: 4.34pt;
         }
-        .v2-15 {
-            /* font-size: 24.5142857142856pt; */
-            font-size: 3.255pt;
-        }
-        .v2-10 {
-            /* font-size: 16.3428571428571pt; */
-            font-size: 2.17pt;
-        }
-        .v2-7 {
-            /* font-size: 11.44pt; */
-            font-size: 1.519pt;
-        }
-        .v2-4 {
-            /* font-size: 6.53714285714284pt; */
-            font-size: 0.868pt;
+        .v2-20 {
+            font-size: 4.34pt;
         }
         
         .question {
@@ -254,18 +242,19 @@
     const u_a = [];
     const w_a = [];
     var cl = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var cs = ['v2-200', 'v2-100', 'v2-70', 'v2-60', 'v2-50', 'v2-40', 'v2-30', 'v2-20', 'v2-15', 'v2-10'];
-    var cv = [200, 100, 70, 60, 50, 40, 30, 20, 15, 10];
+    var cs = ['v2-400', 'v2-300', 'v2-250', 'v2-200', 'v2-150', 'v2-100', 'v2-70', 'v2-60', 'v2-50', 'v2-40', 'v2-30', 'v2-20'];
+    var cv = ['-4.00', '-3.50', '-3.00', '-2.50', '-2.00', '-1.50', '-1.25', '-1.00', '-0.75', '-0.50', '-0.25', '0.00'];
+    var mo = cv.length;
     var as;
     var c;
     function loadTest() {
         h++;
             // console.log(o, f);
-        if (o < 10 && f < 3) {
+        if (o < mo && f < 3) {
             $.ajax({url: "https://raw.githubusercontent.com/AndrewDharmaS/Eye-Checker-Prototype-v0.01/main/myopia.html", success: async function(result){
                 $("#ajaxLoad").html(result);
                 c = $('#' + t + '-char');
-                if (o < 10 && f < 3) {
+                if (o < mo && f < 3) {
                     c.addClass(cs[o]);
                     if (o > 0) c.removeClass(cs[(o-1)]);
                 }
@@ -274,7 +263,7 @@
                 // console.log(o);
                 loadQuestion(t);
             }});
-        } else if (o >= 10 || f > 2) {
+        } else if (o >= mo || f > 2) {
             $("#ajaxLoad").text();
             loadResult();
         };
@@ -293,9 +282,9 @@
             // console.log(p);
             // console.log(x);
             $("#acuity").text(x + "%");
-            var d = 30 + cv[o]/2;
-            var y = (Math.round((100/d)/-0.25)*0.25)
-            $("#lens").text(y);
+            // var d = 0;
+            // var y = (Math.round((100/d)/-0.25)*0.25);
+            $("#lens").text('-' + cv[o]);
             h = 0;
             o = 0;
             f = 0;
